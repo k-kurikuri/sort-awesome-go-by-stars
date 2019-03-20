@@ -118,7 +118,8 @@ func realMain() int {
 			table.Append([]string{fmt.Sprintf("%d", repo.Star), repo.URL, repo.Description})
 		}
 
-		fmt.Printf("\n%s\n", k)
+		fmt.Println()
+		table.SetCaption(true, k)
 		table.Render()
 		fmt.Println()
 	}
