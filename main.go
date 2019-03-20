@@ -42,7 +42,7 @@ func realMain() int {
 			return
 		}
 
-		e.DOM.Next().NextAllFiltered("ul").First().Find("li > a").Each(func(i int, selection *goquery.Selection) {
+		e.DOM.NextAllFiltered("ul").First().Find("li > a").Each(func(i int, selection *goquery.Selection) {
 			href, exists := selection.Attr("href")
 			if !exists {
 				return
