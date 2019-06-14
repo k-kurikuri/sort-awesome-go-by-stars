@@ -2,55 +2,55 @@
 
 
 [[projects]]
-  digest = "1:439bfb51db599cd80766736b93b3d10e9314361197ada0b1209a51627a00ccd5"
+  digest = "1:573fa46f8d413d4bc3f7cc5e86b2c43cb21559f4fb0a19d9874d228e28fdc07c"
   name = "github.com/PuerkitoBio/goquery"
   packages = ["."]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "2d2796f41742ece03e8086188fa4db16a3a0b458"
   version = "v1.5.0"
 
 [[projects]]
   branch = "master"
-  digest = "1:8eb3645af052d93dad8b74fdac72cb0a20278057005945244c6ac4fb8cad42bd"
+  digest = "1:f794b20d326b0a5f50ca66f101d3e904505af1abf1ab87cd53cf583a51a7b67b"
   name = "github.com/alexeyco/simpletable"
   packages = ["."]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "2eb48bcee7cfbe89549a5aed28d7f28fddedd400"
 
 [[projects]]
-  digest = "1:e3726ad6f38f710e84c8dcd0e830014de6eaeea81f28d91ae898afecc078479a"
+  digest = "1:66b3310cf22cdc96c35ef84ede4f7b9b370971c4025f394c89a2638729653b11"
   name = "github.com/andybalholm/cascadia"
   packages = ["."]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "901648c87902174f774fac311d7f176f8647bdaa"
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:d78fa0e01d9a6f71a38b8cdf5184a6b3e69220938689a70e30542b912bf527b1"
+  digest = "1:d500496d898be3381278b5b323442f1060d7fead0d2159e126ff6a60da6f8ab0"
   name = "github.com/antchfx/htmlquery"
   packages = ["."]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "b8d36292614567671decfe6f96c7b8c432d3249b"
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:7cea8ca358577b8c075b3284785a0d3f570f14356e016e6f053e9ed6527a7dcf"
+  digest = "1:a9f01548dc83b8617f1d74f6ea558c18e67b889915956ebe93b50948dc75e8f5"
   name = "github.com/antchfx/xmlquery"
   packages = ["."]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "8bd964f5eef5a1f086493b5941caae5d3daf76f1"
   version = "v1.0.0"
 
 [[projects]]
   branch = "master"
-  digest = "1:29081296dbebd1658d5e086368d931309672a26b5b0d22085b6fa29c3079cc23"
+  digest = "1:7e4a9eaa42cb3b4cd48bd0cd2072a029fe25a47af20cfac529ea8c365f8559ac"
   name = "github.com/antchfx/xpath"
   packages = ["."]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "c8489ed3251e7d55ec2b7f18a2bc3a9a7222f0af"
 
 [[projects]]
-  digest = "1:9ab1b1c637d7c8f49e39d8538a650d7eb2137b076790cff69d160823b505964c"
+  digest = "1:9ae31ce33b4bab257668963e844d98765b44160be4ee98cafc44637a213e530d"
   name = "github.com/gobwas/glob"
   packages = [
     ".",
@@ -62,57 +62,57 @@
     "util/runes",
     "util/strings",
   ]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "5ccd90ef52e1e632236f7326478d4faa74f99438"
   version = "v0.2.3"
 
 [[projects]]
-  digest = "1:a3fa9b2e4999433a3a4a434b30df857767b051e642ece5db0d9c6d41f6fab41f"
+  digest = "1:54bdbd4217a4d8b66f06422395bd6370fa20d2bf85149636d3661a1b5053c900"
   name = "github.com/gocolly/colly"
   packages = [
     ".",
     "debug",
     "storage",
   ]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "ca2f07cb3c921eec1b4993f4ff6f00f593dc3af0"
   version = "v1.2.0"
 
 [[projects]]
-  digest = "1:529d738b7976c3848cae5cf3a8036440166835e389c1f617af701eeb12a0518d"
+  digest = "1:318f1c959a8a740366fce4b1e1eb2fd914036b4af58fbd0a003349b305f118ad"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "b5d812f8a3706043e23a9cd5babf2e5423744d30"
   version = "v1.3.1"
 
 [[projects]]
-  digest = "1:717859f53ed0a55fab7284704ecaac4b0d292f4caca5ceaa2afd512be49189ea"
+  digest = "1:e30ac47ee84d7d354e0a284cf742e3015400667e90aa3d6ae99c7a55da67c645"
   name = "github.com/kennygrant/sanitize"
   packages = ["."]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "06ec0d0dbcd497d01e5189b16f5263f712e61a8e"
   version = "v1.2.4"
 
 [[projects]]
   branch = "master"
-  digest = "1:d1d064197983378d52b9cb2329f58b050ead44fc541aed670587e0131033f9da"
+  digest = "1:374ce4704830a7b9729d8798bcb4ac796f9c7bbb6903950ec55b71332caffe31"
   name = "github.com/saintfish/chardet"
   packages = ["."]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "3af4cd4741ca4f3eb0c407c034571a6fb0ea529c"
 
 [[projects]]
   branch = "master"
-  digest = "1:26a3895530593d2f453fbd7aee1c98fd2f160aba678272e2d7d8c4e428b8ceda"
+  digest = "1:11cdcddc4e9072d0698be2a2b58b183654e1399d9c475987427ed0cb4f6f0039"
   name = "github.com/temoto/robotstxt"
   packages = ["."]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "97ee4a9ee6ea01ed0bbf0325dd789f74cac6cb94"
 
 [[projects]]
   branch = "master"
-  digest = "1:73e6624a8569db94b0d8f9b34052f73ef9598c380edbce36d89dbbc00941e976"
+  digest = "1:fb8f2ad6651aa2b56ce20352cb93d744641d3fd3f47e28789244afb732dc533d"
   name = "golang.org/x/net"
   packages = [
     "context",
@@ -120,11 +120,11 @@
     "html/atom",
     "html/charset",
   ]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "9f648a60d9775ef5c977e7669d1673a7a67bef33"
 
 [[projects]]
-  digest = "1:5acd3512b047305d49e8763eef7ba423901e85d5dd2fd1e71778a0ea8de10bd4"
+  digest = "1:aa4d6967a3237f8367b6bf91503964a77183ecf696f1273e8ad3551bb4412b5f"
   name = "golang.org/x/text"
   packages = [
     "encoding",
@@ -145,12 +145,12 @@
     "transform",
     "unicode/cldr",
   ]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "f21a4dfb5e38f5895301dc265a8def02365cc3d0"
   version = "v0.3.0"
 
 [[projects]]
-  digest = "1:bc09e719c4e2a15d17163f5272d9a3131c45d77542b7fdc53ff518815bc19ab3"
+  digest = "1:6f3bd49ddf2e104e52062774d797714371fac1b8bddfd8e124ce78e6b2264a10"
   name = "google.golang.org/appengine"
   packages = [
     "internal",
@@ -161,7 +161,7 @@
     "internal/urlfetch",
     "urlfetch",
   ]
-  pruneopts = ""
+  pruneopts = "UT"
   revision = "e9657d882bb81064595ca3b56cbe2546bbabf7b1"
   version = "v1.4.0"
 
