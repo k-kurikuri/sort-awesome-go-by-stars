@@ -6,6 +6,19 @@ orbs:
   codecov: codecov/codecov@1.0.5
 jobs:
   build:
+    environment:
+      - GOPATH: /home/circleci/go
+    docker:
+      - image: circleci/golang:1.12
+    working_directory: /home/circleci/go/src/github.com/k-kurikuri/sort-awesome-go-by-stars
     steps:
-      - codecov/upload:
-          file: {{ coverage_report_filepath }}
+      - run: echo 'export PATH=${GOPATH}/bin/:${PATH}' >> $BASH_ENV
+      - checkout
+      - run: go get -v -t -d ./...
+      - run: go test -race -coverprofile=coverage.txt -covermode=atomic
+      - run: bash <(curl -s https://codecov.io/bash)
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build
