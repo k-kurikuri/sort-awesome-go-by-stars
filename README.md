@@ -7,28 +7,23 @@ Output top 5 in order of star number.
 
 
 ## Install
-execute the following command.  
-This package uses [dep](https://github.com/golang/dep), please install it
-
 ```
-$ git clone git@github.com:k-kurikuri/sort-awesome-go-by-stars.git && cd sort-awesome-go-by-stars
-$ dep ensure
-$ go build
+$ go get -u github.com/k-kurikuri/sort-awesome-go-by-stars
  ```
 
 ## Usage
 Example
  ```
-$ ./sort-awesome-go-by-stars "Audio and Music"
+$ sort-awesome-go-by-stars "Audio and Music"
  ```
 
  ```
-$ ./sort-awesome-go-by-stars "Command Line"
+$ sort-awesome-go-by-stars "Command Line"
  ```
 
 ### Pass multiple arguments
  ```
-$ ./sort-awesome-go-by-stars "Third-party APIs" "Web Frameworks"
+$ sort-awesome-go-by-stars "Third-party APIs" "Web Frameworks"
  ```
 
 ### Output
