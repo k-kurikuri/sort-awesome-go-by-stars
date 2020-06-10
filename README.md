@@ -21,11 +21,6 @@ $ sort-awesome-go-by-stars "Audio and Music"
 $ sort-awesome-go-by-stars "Command Line"
  ```
 
-### Pass multiple arguments
- ```
-$ sort-awesome-go-by-stars "Third-party APIs" "Web Frameworks"
- ```
-
 ### Output
  ```
 .................................

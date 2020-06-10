@@ -5,7 +5,7 @@ import (
 )
 
 const (
-	rank = 5
+	Rank = 5
 )
 
 // Repository struct
@@ -28,8 +28,8 @@ func (rs Repositories) SortDesc() {
 // TopRankRepositories return top N repository list
 func (rs Repositories) TopRankRepositories() Repositories {
 	switch {
-	case len(rs) >= rank:
-		return rs[0:rank]
+	case len(rs) >= Rank:
+		return rs[0:Rank]
 	default:
 		return rs[0:]
 	}
