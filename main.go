@@ -7,7 +7,6 @@ import (
 
 	"github.com/alexeyco/simpletable"
 	"github.com/k-kurikuri/sort-awesome-go-by-stars/http"
-	"github.com/k-kurikuri/sort-awesome-go-by-stars/model"
 	"github.com/k-kurikuri/sort-awesome-go-by-stars/output"
 )
 
@@ -36,32 +35,20 @@ func realMain() error {
 	}
 	c.Wait()
 
-	c.RepositoryMap().Range(func(key, vals interface{}) bool {
-		repositories, ok := vals.(model.Repositories)
-		if !ok {
-			return false
-		}
-		contentName, ok := key.(string)
-		if !ok {
-			return false
-		}
+	repos := c.Repositories()
+	repos.SortDesc()
+	topN := repos.TopRankRepositories()
 
-		repositories.SortDesc()
-		topN := repositories.TopRankRepositories()
+	table := output.NewTable(
+		output.Header(simpletable.AlignCenter, "STAR", "PACKAGE_URL", "DESCRIPTION"),
+		output.Footer(simpletable.AlignRight, contentName),
+	)
 
-		table := output.NewTable(
-			output.Header(simpletable.AlignCenter, "STAR", "PACKAGE_URL", "DESCRIPTION"),
-			output.Footer(simpletable.AlignRight, contentName),
-		)
+	for _, repo := range topN {
+		table.AddCells(repo.Star, repo.PackageURL, repo.Description)
+	}
 
-		for _, repo := range topN {
-			table.AddCells(repo.Star, repo.PackageURL, repo.Description)
-		}
-
-		table.Println()
-
-		return true
-	})
+	table.Println()
 
 	return nil
 }

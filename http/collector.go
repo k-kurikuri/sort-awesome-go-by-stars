@@ -20,13 +20,14 @@ const (
 )
 
 var (
-	r = regexp.MustCompile(targetGithubURL)
+	r     = regexp.MustCompile(targetGithubURL)
+	mutex = &sync.Mutex{}
 )
 
 // Collector struct
 type Collector struct {
 	colly          *colly.Collector
-	repositoryMap  *sync.Map
+	repositories   model.Repositories
 	starMap        *sync.Map
 	descriptionMap *sync.Map
 	contentName    string
@@ -40,16 +41,16 @@ func NewCollector(contentName string) *Collector {
 	)
 	return &Collector{
 		colly:          c,
-		repositoryMap:  &sync.Map{},
+		repositories:   make(model.Repositories, 0, model.Rank),
 		starMap:        &sync.Map{},
 		descriptionMap: &sync.Map{},
 		contentName:    contentName,
 	}
 }
 
-// RepositoryMap
-func (c *Collector) RepositoryMap() *sync.Map {
-	return c.repositoryMap
+// Repositories
+func (c *Collector) Repositories() model.Repositories {
+	return c.repositories
 }
 
 // BeforeRequest
@@ -120,13 +121,9 @@ func (c *Collector) OnCompleted() {
 			Description: c.getDescription(packageURL),
 		}
 
-		actual, loaded := c.repositoryMap.LoadOrStore(c.contentName, model.Repositories{repo})
-		if !loaded {
-			return
-		}
-
-		loadRepos := actual.(model.Repositories)
-		c.repositoryMap.Store(c.contentName, append(loadRepos, repo))
+		mutex.Lock()
+		c.repositories = append(c.repositories, repo)
+		mutex.Unlock()
 	})
 }
 
