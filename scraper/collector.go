@@ -1,5 +1,5 @@
 //
-package http
+package scraper
 
 import (
 	"fmt"
@@ -24,8 +24,8 @@ var (
 	mutex = &sync.Mutex{}
 )
 
-// Collector struct
-type Collector struct {
+// Client struct
+type Client struct {
 	colly          *colly.Collector
 	repositories   model.Repositories
 	starMap        *sync.Map
@@ -33,13 +33,13 @@ type Collector struct {
 	contentName    string
 }
 
-// NewCollector constructor
-func NewCollector(contentName string) *Collector {
+// New constructor
+func New(contentName string) *Client {
 	c := colly.NewCollector(
 		colly.Async(true),
 		colly.AllowedDomains("github.com"),
 	)
-	return &Collector{
+	return &Client{
 		colly:          c,
 		repositories:   make(model.Repositories, 0, model.Rank),
 		starMap:        &sync.Map{},
@@ -49,19 +49,19 @@ func NewCollector(contentName string) *Collector {
 }
 
 // Repositories
-func (c *Collector) Repositories() model.Repositories {
+func (c *Client) Repositories() model.Repositories {
 	return c.repositories
 }
 
 // BeforeRequest
-func (c *Collector) BeforeRequest() {
+func (c *Client) BeforeRequest() {
 	// before request
 	c.colly.OnRequest(func(r *colly.Request) {
 		fmt.Print(".")
 	})
 }
 
-func (c *Collector) OnReadMe(text string) {
+func (c *Client) OnReadMe(text string) {
 	// get content
 	c.colly.OnHTML("#readme h2", func(e *colly.HTMLElement) {
 		if text != e.Text {
@@ -87,7 +87,7 @@ func (c *Collector) OnReadMe(text string) {
 	})
 }
 
-func (c *Collector) OnGithubStar() {
+func (c *Client) OnGithubStar() {
 	c.colly.OnHTML("a.social-count.js-social-count", func(e *colly.HTMLElement) {
 		// awesome goは除外する
 		if e.Request.URL.Path == "/avelino/awesome-go" {
@@ -105,14 +105,14 @@ func (c *Collector) OnGithubStar() {
 	})
 }
 
-func (c *Collector) OnDescription() {
+func (c *Client) OnDescription() {
 	c.colly.OnHTML("span.text-gray-dark.mr-2", func(e *colly.HTMLElement) {
 		packageURL := e.Request.URL.String()
 		c.descriptionMap.Store(packageURL, strings.Replace(e.Text, "\n", "", -1))
 	})
 }
 
-func (c *Collector) OnCompleted() {
+func (c *Client) OnCompleted() {
 	c.colly.OnScraped(func(res *colly.Response) {
 		packageURL := res.Request.URL.String()
 		repo := model.Repository{
@@ -128,21 +128,21 @@ func (c *Collector) OnCompleted() {
 }
 
 // ErrorListener
-func (c *Collector) ErrorListener() {
+func (c *Client) ErrorListener() {
 	c.colly.OnError(func(_ *colly.Response, err error) {
 		log.Println(err)
 	})
 }
 
-func (c *Collector) VisitAweSomeGo() error {
+func (c *Client) VisitAweSomeGo() error {
 	return c.colly.Visit(visitURL)
 }
 
-func (c *Collector) Wait() {
+func (c *Client) Wait() {
 	c.colly.Wait()
 }
 
-func (c *Collector) getStarFromScrapedText(val string) (int, error) {
+func (c *Client) getStarFromScrapedText(val string) (int, error) {
 	starStr := strings.Replace(val, ",", "", -1)
 	starStr = strings.Replace(starStr, "\n", "", -1)
 	starStr = strings.Replace(starStr, " ", "", -1)
@@ -163,7 +163,7 @@ func (c *Collector) getStarFromScrapedText(val string) (int, error) {
 	return star, err
 }
 
-func (c *Collector) getStar(key string) int {
+func (c *Client) getStar(key string) int {
 	val, ok := c.starMap.Load(key)
 	if !ok {
 		return 0
@@ -171,7 +171,7 @@ func (c *Collector) getStar(key string) int {
 	return val.(int)
 }
 
-func (c *Collector) getDescription(key string) string {
+func (c *Client) getDescription(key string) string {
 	val, ok := c.descriptionMap.Load(key)
 	if !ok {
 		return ""
