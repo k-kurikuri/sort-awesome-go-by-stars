@@ -6,8 +6,8 @@ import (
 	"os"
 
 	"github.com/alexeyco/simpletable"
-	"github.com/k-kurikuri/sort-awesome-go-by-stars/http"
 	"github.com/k-kurikuri/sort-awesome-go-by-stars/output"
+	"github.com/k-kurikuri/sort-awesome-go-by-stars/scraper"
 )
 
 func main() {
@@ -23,19 +23,19 @@ func realMain() error {
 	flag.Parse()
 	contentName := flag.Arg(0)
 
-	c := http.NewCollector(contentName)
-	c.ErrorListener()
-	c.BeforeRequest()
-	c.OnReadMe(contentName)
-	c.OnGithubStar()
-	c.OnDescription()
-	c.OnCompleted()
-	if err := c.VisitAweSomeGo(); err != nil {
+	sc := scraper.New(contentName)
+	sc.ErrorListener()
+	sc.BeforeRequest()
+	sc.OnReadMe(contentName)
+	sc.OnGithubStar()
+	sc.OnDescription()
+	sc.OnCompleted()
+	if err := sc.VisitAweSomeGo(); err != nil {
 		return err
 	}
-	c.Wait()
+	sc.Wait()
 
-	repos := c.Repositories()
+	repos := sc.Repositories()
 	repos.SortDesc()
 	topN := repos.TopRankRepositories()
 
