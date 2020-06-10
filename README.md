@@ -12,11 +12,16 @@ $ go get -u github.com/k-kurikuri/sort-awesome-go-by-stars
  ```
 
 ## Usage
-Example
+You can find the name of the content in the [awesome-go](https://github.com/avelino/awesome-go) repository's readme. The command line argument must be set to the name of the content.
+![content-name](https://user-images.githubusercontent.com/5502629/84234098-8d8e9b00-ab2e-11ea-80e0-d60a1cbba5ae.png)
+
+### Command Example
+if the content name is `"Audio and Music"`
  ```
 $ sort-awesome-go-by-stars "Audio and Music"
  ```
 
+if the content name is `"Command Line"`
  ```
 $ sort-awesome-go-by-stars "Command Line"
  ```
