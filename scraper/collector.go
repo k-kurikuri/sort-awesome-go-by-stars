@@ -106,7 +106,7 @@ func (c *Client) OnGithubStar() {
 }
 
 func (c *Client) OnDescription() {
-	c.colly.OnHTML("span.text-gray-dark.mr-2", func(e *colly.HTMLElement) {
+	c.colly.OnHTML("p.f4:nth-child(2)", func(e *colly.HTMLElement) {
 		packageURL := e.Request.URL.String()
 		c.descriptionMap.Store(packageURL, strings.Replace(e.Text, "\n", "", -1))
 	})
