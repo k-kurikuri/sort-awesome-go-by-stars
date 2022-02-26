@@ -88,7 +88,7 @@ func (c *Client) OnReadMe(text string) {
 }
 
 func (c *Client) OnGithubStar() {
-	c.colly.OnHTML("a.social-count.js-social-count", func(e *colly.HTMLElement) {
+	c.colly.OnHTML("#repo-stars-counter-star", func(e *colly.HTMLElement) {
 		// awesome goは除外する
 		if e.Request.URL.Path == "/avelino/awesome-go" {
 			return
