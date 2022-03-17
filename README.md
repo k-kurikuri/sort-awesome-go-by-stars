@@ -1,5 +1,4 @@
 # sort-awesome-go-by-stars
-[![CircleCI](https://circleci.com/gh/k-kurikuri/sort-awesome-go-by-stars.svg?style=svg)](https://circleci.com/gh/k-kurikuri/sort-awesome-go-by-stars)
 [![codecov](https://codecov.io/gh/k-kurikuri/sort-awesome-go-by-stars/branch/master/graph/badge.svg)](https://codecov.io/gh/k-kurikuri/sort-awesome-go-by-stars)
 
 This is a tool to sort the software listed in "awesome go" by the number of stars.  
